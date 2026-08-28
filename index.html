@@ -4,6 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Code TAIEB</title>
+                <!-- Google Fonts Preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Fira Code Font Link (Weights: 400, 500, 600, 700) -->
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -14,7 +21,7 @@
 
                     </div>
 
-                    <div class="sections1">
+                    <div class="firstsection">
                         <ul class="unorder">
                             <li class="items">File</li>
                             <li class="items">Edit</li>
@@ -31,15 +38,40 @@
                         </ul>
                     </div>
 
-                    <div class="section2">
-                        <div class="forsearch">
-                            <input class="mainsearch" type="search" placeholder="Search Here">
+                    <div class="secondsection">
+                        <div class="codesearch">
+                            <input class="ib" type="search" placeholder="Search Here">
                         </div>
                     </div>
 
-                    <div class="section3">
-                        <div class="statusbar">
+                    <div class="thirdsection">
+                        <div class="status-datetime">
+                            <span class="status-time">10:45 PM</span>
+                            <span class="status-date">Thu, 17 Aug</span>
+                        </div>
 
+                        <div class="charge">
+                            <div class="simname"> <!--this is for mobile data or internet connection-->
+                                <div class="net2">
+                                    <span class="material-symbols-outlined status-icon">signal_cellular_alt</span>
+                                    <svg class="status-svg" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M9 3L5 7h3v7h2V7h3L9 3zm6 14h-3v-7h-2v7H7l4 4 4-4z"/>
+                                    </svg>
+                                </div>
+                                <div class="net">
+                                    <span class="sim-name">BL</span>
+                                    <span class="net-type">5G</span>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="wifiicon">
+                                <span class="material-symbols-outlined wifi">wifi</span>
+                            </div>
+
+                            <div class="chargeicon">
+                                <span class="material-symbols-outlined chargeiii">battery_charging_full</span>
+                            </div>
                         </div>
                     </div>
                 </div>
