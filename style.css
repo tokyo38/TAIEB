@@ -16,14 +16,11 @@ body {
     background-position: center;
     height: 30px;
     width: 30px;
-    margin-top: 3px;
     flex-shrink: 0;                   /* লোগো যেন চ্যাপ্টা না হয়ে যায় */
     border-radius: 8px;              /* ৩০px সাইজের জন্য ৮px বা ১০px রাউন্ড পারফেক্ট দেখাবে */
     overflow: hidden;                /* রাউন্ড কর্নারের বাইরে যেন কিছু না যায় */
     border: 1px solid rgba(0, 229, 255, 0.3); /* সাইবারপাঙ্ক নিওন লুকের জন্য হালকা সায়ান বর্ডার (ঐচ্ছিক) */
 }
-
-
 
 .topnav-main {
     position: fixed;       /* স্ক্রিনের উপরে ফিক্সড রাখার জন্য */
@@ -33,13 +30,14 @@ body {
     z-index: 1000;         /* কোড এডিটর বা অন্যান্য কন্টেন্টের উপরে রাখতে */
     /* উপরে মাউস নেওয়ার সেনসিটিভিটি এরিয়া ২৫ পিক্সেল বাড়িয়ে দেবে */
     padding-bottom: 2px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 8px;
     
-    border-radius: 10px;
+    border-radius: 15px;
 
     /* ডিফল্ট অবস্থায় লুকিয়ে থাকবে (উচ্চতা অনুযায়ী translateY অ্যাডজাস্ট করা হয়েছে) */
-    transform: translateY(-44px); 
+    /* transform: translateY(-44px);  */
     
     /* স্মুথ স্লাইড এনিমেশন */
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -55,15 +53,15 @@ body {
 
 /* ২. ভেতরের চাইল্ড (আপনার বিদ্যমান গ্লাসমর্ফিজম কোড যা একদম অপরিবর্তিত আছে) */
 .topnav {
-    margin-top: 5px;
-    height: 45px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 16px;
+    gap: 15px;
     /* উপরে মাউস নেওয়ার সেনসিটিভিটি এরিয়া ২৫ পিক্সেল বাড়িয়ে দেবে */
 
-    /* পিওর ব্ল্যাকের ওপর গ্লাস লুকের জন্য সূক্ষ্ম ট্রান্সপারেন্ট লেয়ার */
+    /* পিওর ব্ল্যাকের ওপর গ্লাস লুকের জন্য সূক্ষ্ম ট্রান্সপারেন্ট লেয়ার */
     background: linear-gradient(
         135deg, 
         rgba(255, 255, 255, 0.08) 0%, 
@@ -85,61 +83,65 @@ body {
     box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
 }
 
+.firstsection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
 .unorder {
     display: flex;
-    justify-content: space-evenly;
-    width: 900px;
-    gap: 20px;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
 }
 
 .items {
     font-family: 'Inter', 'Google Sans', sans-serif;
-    font-weight: 200;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-weight: 300;
     font-size: 20px;
-    color: white;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.2s ease;
 }
 
-.firstsection {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    width: 500px;
+.items:hover {
+    color: #00e5ff;
 }
 
+/* ১. প্যারেন্ট সেকশনের নির্দিষ্ট ফিক্সড উইডথ সরিয়ে ফ্লেক্স গ্রো দেওয়া হয়েছে */
 .secondsection {
-    width: 10px;
-    margin-right: 500px;
+    flex-grow: 1; /* সার্চ বারকে পুরো খালি জায়গা নেওয়ার সুযোগ দেবে */
+    display: flex;
+    justify-content: center; /* মাঝখানে এলাইন করবে */
+    max-width: 500px;
 }
 
-/* ১. সার্চ ফিল্ডের কন্টেইনার / র‍্যাপার (যদি থাকে) */
+/* ২. সার্চ কন্টেইনার (এখানে উইডথ বড় ও রেসপনসিভ করা হয়েছে) */
 .codesearch {
     background: transparent;
-    height: 32px;
-    width: 600px;
-    padding-left: 300px;
+    height: 34px;
+    width: 100%;
     display: flex;
     align-items: center;
 }
 
-/* ২. মূল ইনপুট ফিল্ড (গ্লাস ইফেক্ট) */
+/* ৩. মূল ইনপুট ফিল্ড */
 .ib {
-    height: 90%;
-    width: 500px;
-    background: rgba(255, 255, 255, 0.05); /* হালকা ডার্ক গ্লাস লেয়ার */
-    border: 1px solid rgba(255, 255, 255, 0.12); /* সূক্ষ্ম গ্লাস বর্ডার */
-    border-radius: 6px; /* অথবা ৩কোনা কাটিং দিতে চাইলে clip-path ব্যবহার করতে পারেন */
-    
+    height: 100%; /* কন্টেইনারের পুরো উচ্চতা নিবে */
+    width: 100%;  /* কন্টেইনারের পুরো চওড়া নিবে */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px; /* একটু রাউন্ড করা হয়েছে */
     color: #ffffff;
-    font-family: 'Fira Code', monospace; /* এডিটরের সাথে ম্যাচিং ফন্ট */
-    font-size: 12px;
+    font-family: 'Fira Code', monospace;
+    font-size: 12px; /* টেক্সট কিছুটা বড় ও স্পষ্ট করা হয়েছে */
     text-align: center;
     outline: none;
+    padding: 0 12px; /* ভেতরের লেখা যেন বর্ডারে না লেগে যায় */
     
-    /* ব্লার এবং ট্রানজিশন */
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     transition: all 0.3s ease;
@@ -147,37 +149,35 @@ body {
     box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
 }
 
-/* প্লেসহোল্ডারের কালার (Placeholder styling) */
+/* প্লেসহোল্ডার স্টাইল */
 .ib::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
-/* ৩. মাউস নিলে বা ফোকাস করলে গ্লো ইফেক্ট (Interactive Glow) */
+/* হভার ও ফোকাস ইফেক্ট */
 .ib:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.25);
 }
 
 .ib:focus {
-    background: rgba(0, 0, 0, 0.4);
-    border-color: rgba(224, 229, 230, 0.5); /* সাইবারপাঙ্ক সায়ান গ্লো */
-    box-shadow: 0 0 10px rgba(169, 166, 166, 0.796), inset 0 1px 2px rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 229, 255, 0.6); /* সাইবারপাঙ্ক সায়ান বর্ডার */
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
+/* ৪. সার্চ ইনপুট ডিফল্ট স্টাইল রিমুভার */
 input[type="search"] {
-    background: transparent;    /* ডিফল্ট সাদা বা গ্রে ব্যাকগ্রাউন্ড উঠিয়ে দেওয়া */
-    border: none;               /* ডিফল্ট আউটলাইন বর্ডার তোলা */
-    outline: none;              /* ফোকাস করলে যে আউটলাইন আসে তা তোলা */
-    color: #ffffff;             /* টাইপ করার টেক্সট কালার */
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
     font-family: 'Inter', sans-serif;
-    
-    /* আইওএস (iOS/Safari) ব্রাউজারের ডিফল্ট রাউন্ড স্টাইল বন্ধ করা */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
 
-/* ২. ক্রোম, সাফারি ও এজ ব্রাউজারের ডিফল্ট "Clear/Cross (X)" বাটন লুকানো */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-results-button,
@@ -187,22 +187,18 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .thirdsection {
-    height: 32px;
-    width: 600px;
-    color: white;
     display: flex;
     align-items: center;
-    font-family: 'Inter', system-ui, sans-serif;
-    gap: 16px;
+    gap: 14px;
+    flex-shrink: 0;
     user-select: none;
-    padding-left: 102px;
 }
 
 .sim-name {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.5px;
     color: rgba(255, 255, 255, 0.9);
@@ -210,18 +206,19 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .net {
     display: flex;
+    align-items: center;
+    gap: 2px;
 }
 
 .net2 {
     display: flex;
+    align-items: center;
 }
 
 .net-type {
     font-size: 10px;
     font-weight: 700;
     color: #00e5ff; /* সাইবারপাঙ্ক গ্লো টেক্সট */
-    margin-right: 2px;
-    padding-top: 1px;
 }
 
 .status-icon {
@@ -233,11 +230,8 @@ input[type="search"]::-webkit-search-results-decoration {
 .status-datetime {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    line-height: 0.5;
-    gap: 6px;
-    margin-left: 4px;
+    align-items: flex-end;
+    line-height: 1.1;
     font-family: 'Fira Code', monospace;
     font-size: 11px;
 }
@@ -246,18 +240,44 @@ input[type="search"]::-webkit-search-results-decoration {
 .status-date {
     color: rgba(255, 255, 255, 0.65); /* টাইম থেকে হালকা ঝাপসা/ডিজিটাল লুক */
     font-weight: 400;
+    font-size: 10px;
 }
 
 /* টাইমের স্টাইল */
 .status-time {
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 600;
+}
+
+.charge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.simname {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.status-svg {
+    width: 12px;
+    height: 12px;
+    fill: rgba(255, 255, 255, 0.85);
+}
+
+.wifiicon, .chargeicon {
+    display: flex;
+    align-items: center;
 }
 
 .wifi {
-    font-size: 20px !important;
+    font-size: 18px !important;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .chargeiii {
-    font-size: 20px !important;
+    font-size: 18px !important;
+    color: rgba(255, 255, 255, 0.9);
 }
