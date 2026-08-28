@@ -11,15 +11,19 @@ body {
 
 .logo {
     background-image: url("logo.jpeg");
-    background-size: contain;
+    background-size: cover;          /* contain-এর বদলে cover দিলে পুরো ৩০px জায়গা জুড়ে রাউন্ডেড ফিল হবে */
     background-repeat: no-repeat;
     background-position: center;
     height: 30px;
     width: 30px;
     margin-top: 3px;
-    padding-left: 100px;
-    flex-shrink: 0; /* লোগো যেন চ্যাপ্টা না হয়ে যায় */
+    flex-shrink: 0;                   /* লোগো যেন চ্যাপ্টা না হয়ে যায় */
+    border-radius: 8px;              /* ৩০px সাইজের জন্য ৮px বা ১০px রাউন্ড পারফেক্ট দেখাবে */
+    overflow: hidden;                /* রাউন্ড কর্নারের বাইরে যেন কিছু না যায় */
+    border: 1px solid rgba(0, 229, 255, 0.3); /* সাইবারপাঙ্ক নিওন লুকের জন্য হালকা সায়ান বর্ডার (ঐচ্ছিক) */
 }
+
+
 
 .topnav-main {
     position: fixed;       /* স্ক্রিনের উপরে ফিক্সড রাখার জন্য */
