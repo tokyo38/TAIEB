@@ -9,3 +9,80 @@ body {
     color: white;
 }
 
+.topnav-main {
+    position: fixed;       /* স্ক্রিনের উপরে ফিক্সড রাখার জন্য */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;         /* কোড এডিটর বা অন্যান্য কন্টেন্টের উপরে রাখতে */
+    /* উপরে মাউস নেওয়ার সেনসিটিভিটি এরিয়া ২৫ পিক্সেল বাড়িয়ে দেবে */
+    padding-bottom: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
+    border-radius: 10px;
+
+    /* ডিফল্ট অবস্থায় লুকিয়ে থাকবে (উচ্চতা অনুযায়ী translateY অ্যাডজাস্ট করা হয়েছে) */
+    transform: translateY(-44px); 
+    
+    /* স্মুথ স্লাইড এনিমেশন */
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* পলিগন বা শেপের নিচে সূক্ষ্ম কাস্টম গ্লো ও ড্রপ শ্যাডো */
+    filter: drop-shadow(0px 8px 20px rgba(0, 0, 0, 0.8));
+}
+
+/* মাউস উপরে আনলে (Hover করলে) পুরোপুরি নিচে চলে আসবে */
+.topnav-main:hover {
+    transform: translateY(0);
+}
+
+/* ২. ভেতরের চাইল্ড (আপনার বিদ্যমান গ্লাসমর্ফিজম কোড যা একদম অপরিবর্তিত আছে) */
+.topnav {
+    margin-top: 5px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    /* উপরে মাউস নেওয়ার সেনসিটিভিটি এরিয়া ২৫ পিক্সেল বাড়িয়ে দেবে */
+
+    /* পিওর ব্ল্যাকের ওপর গ্লাস লুকের জন্য সূক্ষ্ম ট্রান্সপারেন্ট লেয়ার */
+    background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        rgba(255, 255, 255, 0.01) 100%
+    );
+
+    /* পেছনের ব্যাকগ্রাউন্ড ও কোড ব্লার করার জন্য */
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+
+    /* গ্লাস পেজের প্রান্ত হাইলাইট করার বর্ডার */
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+
+    /* কাঁচের ভেতরের নিজস্ব লাইটিং বা শাইন (Inner Glow) */
+    box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.unorder {
+    display: flex;
+    justify-content: space-evenly;
+    width: 900px;
+    gap: 20px;
+}
+
+.items {
+    font-family: 'Inter', 'Google Sans', sans-serif;
+    font-weight: 200;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+}
